@@ -1,64 +1,98 @@
-html{
-    font-size: 32.5%;
+html {
+  font-size: 32.5%;
 }
 
-body{
-    display: grid;
-  grid-template-areas: "header header header header"
-  "hero hero hero hero"
-  "about about about about"
-  "services services services services"
-  "projects projects projects projects"
-  "footer footer footer footer";
-  grid-template-columns: repeat(4 , 1fr);
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "hero hero hero hero"
+    "about about about about"
+    "services services services services"
+    "projects projects projects projects"
+    "footer footer footer footer";
+  grid-template-columns: repeat(4, 1fr);
   font-size: 1.6rem;
-  font-family: "Roboto" , sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
+}
+
+.header {
+  grid-area: header;
+  background-color: #fff;
+}
+
+.header .header-container {
+  display: flex;
+  padding: 20px 40px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 75px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.header a:hover h1 {
+  color: coral;
+}
+
+.hero {
+  grid-area: hero;
+ height: 89vh;
+ background: url(../images/lemons.jpg) center center no-repeat;
+ background-size: cover;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: relative;
+}
+.hero h2{
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.hero:after{
+  content: url(../images/seta_preta.png);
+  height: 35px;
+  bottom: 40px;
+  position: absolute;
+  animation: dowmarrow 0.6s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes dowmarrow{
+  0% {-webkit-transform: translateY(0); opacity: 0.4;}
+  100% {-webkit-transform: translateY(0.4em); opacity: 0.9;}
 
 }
 
-.header{
-    grid-area: header;
-    background-color:#fff;
+@media (max-width: 425px) {
+  .hero{
+    height: 60vh;
+  }
+  .hero h2{
+    font-size: 2.5rem;
+  }
+  
 }
 
-.header .header-container{
-    display: flex;
-    padding: 20px 40px;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 75px;
-font-size: ;
+.about {
+  grid-area: about;
+  background-color: blue;
 }
-
-.header h1{
-    font-size: 3rem;
-    font-weight: 700;
-    transition: 0.3s;
+.services {
+  grid-area: services;
+  background-color: blueviolet;
 }
-
-.header a:hover h1{
-    color: coral;
-
+.projects {
+  grid-area: projects;
+  background-color: orange;
 }
-
-.hero{
-    grid-area: hero;
-    background-color: yellow;
-}
-.about{
-    grid-area: about;
-    background-color: blue;
-}
-.services{
-    grid-area: services;
-    background-color: blueviolet;
-}
-.projects{
-    grid-area: projects;
-    background-color: orange;
-}
-.footer{
-    grid-area: footer;
-    background-color: aqua;
+.footer {
+  grid-area: footer;
+  background-color: aqua;
 }
